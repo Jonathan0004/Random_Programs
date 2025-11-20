@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Percent Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="icon-badge" aria-hidden="true">
+        <span class="material-symbols-rounded">calculate</span>
+      </div>
+      <div class="title-block">
+        <h1 class="app-title">Bright Calc</h1>
+        <p class="app-subtitle">Percent Mode</p>
+      </div>
+      <button class="mode-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mode-menu">
+        <span class="material-symbols-rounded" aria-hidden="true">tune</span>
+        <span class="toggle-label">Mode</span>
+      </button>
+      <div id="mode-menu" class="mode-menu" role="menu">
+        <button class="mode-option" data-mode="standard" role="menuitem">
+          <span class="material-symbols-rounded" aria-hidden="true">dialpad</span>
+          <span>Standard</span>
+        </button>
+        <button class="mode-option" data-mode="percent" role="menuitem">
+          <span class="material-symbols-rounded" aria-hidden="true">percent</span>
+          <span>Percent</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="primary-content">
+      <section class="primary-value" role="status" aria-live="polite">
+        <div class="value-line" id="expression">0</div>
+        <div class="value-main" id="main-value">0</div>
+      </section>
+      <div class="status-label" id="mode-label">Standard</div>
+
+      <section class="secondary-content">
+        <div class="calc-panel" data-mode-view="standard">
+          <div class="meta-row">
+            <button class="pill-btn" data-action="clear">AC</button>
+            <button class="pill-btn" data-action="invert">±</button>
+            <button class="pill-btn" data-action="percent">%</button>
+            <button class="pill-btn accent" data-operator="divide">÷</button>
+          </div>
+          <div class="controls">
+            <div class="grid">
+              <button class="pill-btn" data-digit="7">7</button>
+              <button class="pill-btn" data-digit="8">8</button>
+              <button class="pill-btn" data-digit="9">9</button>
+              <button class="pill-btn accent" data-operator="multiply">×</button>
+
+              <button class="pill-btn" data-digit="4">4</button>
+              <button class="pill-btn" data-digit="5">5</button>
+              <button class="pill-btn" data-digit="6">6</button>
+              <button class="pill-btn accent" data-operator="subtract">−</button>
+
+              <button class="pill-btn" data-digit="1">1</button>
+              <button class="pill-btn" data-digit="2">2</button>
+              <button class="pill-btn" data-digit="3">3</button>
+              <button class="pill-btn accent" data-operator="add">+</button>
+
+              <button class="pill-btn wide" data-digit="0">0</button>
+              <button class="pill-btn" data-digit=".">.</button>
+              <button class="pill-btn primary" data-action="equals">=</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="percent-panel" data-mode-view="percent" hidden>
+          <div class="meta-row">
+            <label class="input-wrap">
+              <span class="material-symbols-rounded" aria-hidden="true">countertops</span>
+              <input id="base-input" type="number" inputmode="decimal" placeholder="Base" aria-label="Base value">
+            </label>
+            <label class="input-wrap">
+              <span class="material-symbols-rounded" aria-hidden="true">percent</span>
+              <input id="rate-input" type="number" inputmode="decimal" placeholder="Rate" aria-label="Rate percentage">
+            </label>
+          </div>
+          <div class="meta-row">
+            <button class="pill-btn primary expand" id="compute-percent">Convert</button>
+          </div>
+          <div class="percent-result" id="percent-result" aria-live="polite">0</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
